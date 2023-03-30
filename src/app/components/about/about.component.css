@@ -1,0 +1,18 @@
+
+:root {
+    --colorCards: #993366;
+}
+
+.fondoImg {
+    background-color: #ecc6d9;
+}
+
+.hr-sect:before {
+    content: "";
+    flex-grow: 1;
+    background: var(--colorCards);
+    height: 1px;
+    font-size: 0px;
+    line-height: 0px;
+    margin: 0px 8px;
+}
