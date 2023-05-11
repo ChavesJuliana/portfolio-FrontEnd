@@ -1,0 +1,20 @@
+<ul class="list-group list-group-flush">
+    <li *ngFor="let educacion of educacion" class="list-group-item">
+        
+        <div class="d-flex justify-content-between align-items-center">
+
+            <div>
+                <h6> {{ educacion.nombre }} – {{ educacion.institucion }} </h6>
+                <p class="text-muted">  {{ educacion.fecha_desde }} - {{ educacion.actualmente ? educacion.fecha_hasta : "Actualmente"}} </p> 
+            </div>
+
+            <div>
+                <fa-icon  (click)="abrirModal('Editar estudio', educacion.id_educacion, educacion.nombre, educacion.institucion, educacion.fecha_desde, educacion.fecha_hasta, educacion.actualmente)" class="iconoLink" [icon]="faEdit" size="lg"></fa-icon> 
+                <fa-icon  (click)="deleteAlert(educacion.id_educacion)" class="iconoLink" [icon]="faTrash" size="lg"></fa-icon>
+            </div>
+
+         </div>
+
+    </li>
+
+</ul>

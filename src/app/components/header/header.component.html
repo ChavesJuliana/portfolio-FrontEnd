@@ -9,13 +9,13 @@
       </button>
       <div class="collapse navbar-collapse" id="navbarText">
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-          <li class="nav-item">
+          <li class="nav-item" *ngIf="isHome()!='/login'">
             <a class="nav-link active" aria-current="page" href="#">Home</a>
           </li>
-          <li class="nav-item">
+          <li class="nav-item" *ngIf="isHome()!='/login'">
             <a class="nav-link" href="#">blabla</a>
           </li>
-          <li class="nav-item">
+          <li class="nav-item" *ngIf="isHome()!='/login'">
             <a class="nav-link" href="#">blabla</a>
           </li>
         </ul>
@@ -24,9 +24,15 @@
             <a class="nav-link" href="#"> 
               <fa-icon [icon]="faGithub" size="2x"></fa-icon>
             </a>
-            <a class="nav-link" href="#"> 
+            <a class="nav-link" style="margin-right: 30px;" href="#"> 
               <fa-icon [icon]="faLinkedin" size="2x"></fa-icon> 
             </a>
+            <button class="btn" style="margin-right: 10px;" routerLink="/login" *ngIf="isHome()!='/login' && !logIn()">
+              Iniciar sesión
+            </button>
+            <button class="btn" (click)="logout()" style="margin-right: 10px;" routerLink="/login" *ngIf="isHome()!='/login' && logIn()">
+              Cerrar sesión
+            </button>
           </ul>
       
         </span>

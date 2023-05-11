@@ -10,6 +10,17 @@ import { ConocimientosComponent } from './components/conocimientos/conocimientos
 import { EstudiosComponent } from './components/estudios/estudios.component';
 import { ProyectosComponent } from './components/proyectos/proyectos.component';
 import { HeaderComponent } from './components/header/header.component';
+import { LoginComponent } from './components/login/login.component';
+import { HomeComponent } from './components/home/home.component';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
+import { ReactiveFormsModule } from '@angular/forms';
+import { EditaboutComponent } from './components/about/editabout/editabout.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { ListarConocimientosComponent } from './components/conocimientos/listar-conocimientos/listar-conocimientos.component';
+import { ModalConocimientosComponent } from './components/conocimientos/modal-conocimientos/modal-conocimientos.component';
+import { ModalEstudiosComponent } from './components/estudios/modal-estudios/modal-estudios.component';
+import { ListarEstudiosComponent } from './components/estudios/listar-estudios/listar-estudios.component';
+import { AuthInterceptor } from './helpers/auth.interceptor';
 
 @NgModule({
   declarations: [
@@ -19,14 +30,28 @@ import { HeaderComponent } from './components/header/header.component';
     ConocimientosComponent,
     EstudiosComponent,
     ProyectosComponent,
-    HeaderComponent
+    HeaderComponent,
+    LoginComponent,
+    HomeComponent,
+    EditaboutComponent,
+    ListarConocimientosComponent,
+    ModalConocimientosComponent,
+    ModalEstudiosComponent,
+    ListarEstudiosComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FontAwesomeModule
+    FontAwesomeModule,
+    HttpClientModule,
+    ReactiveFormsModule,
+    NgbModule
   ],
-  providers: [],
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

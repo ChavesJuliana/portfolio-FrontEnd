@@ -1,0 +1,36 @@
+<div class="modal-content">
+    <div class="modal-header">
+      <h1 class="modal-title fs-5" id="staticBackdropLabel"> {{titulo}} </h1>
+      <button type="button" class="btn-close" (click)="closeModal()"></button>
+    </div>
+
+    <form (ngSubmit)="onSubmit()" [formGroup]="aboutForm">
+
+
+    <div class="modal-body">
+
+        <div class="input-group mb-3">
+          <span class="input-group-text"> Nombre: </span>
+          <input class="form-control" type="text" id="nombre" name="nombre" required formControlName="nombre">
+        </div>
+        <div class="input-group  mb-3">
+            <span class="input-group-text"> Porcentaje: </span>
+            <input type="range" style="height: 40px !important;" class="rangeRosa form-range form-control" id="porcentaje" name="porcentaje" required formControlName="porcentaje">
+        </div>
+
+        <input type="text" name="id_conocimiento" id="id_conocimiento" formControlName="id_conocimiento" style="display: none;" />
+        <input type="text" name="tipo_conocimiento" id="tipo_conocimiento" formControlName="tipo_conocimiento" style="display: none;" />
+        <input type="text" name="id_persona" id="id_persona" formControlName="id_persona" style="display: none;" />
+
+
+    </div>
+
+    <div class="modal-footer">
+      <button type="submit" data-bs-dismiss="modal" class="btn">Confirmar</button>
+      <button type="button" class="btn btn-sin-bordes" (click)="closeModal()">Cerrar</button>
+    </div>
+
+    </form>
+
+    
+  </div>

@@ -7,36 +7,46 @@
     <div class="col-sm-4">
       <div class="card border-primary h-100">
           <div class="card-body">
-              <h5 class="card-title"> <fa-icon [icon]="faCode"></fa-icon> Programación </h5>
-              <ul class="list-group list-group-flush">
-                  <li class="list-group-item">• PHP - Laravel</li>
-                  <li class="list-group-item">• Java - Spring Boot, para el desarrollo de APIs Restful</li>
-                  <li class="list-group-item">• Javascript - Angular</li>
-              </ul>
+
+            <div class="d-flex justify-content-between">
+                <h5 class="card-title"> <fa-icon [icon]="faCode"></fa-icon> Programación </h5>
+                <fa-icon class="iconoLink" (click)="openModal('Añadir conocimiento de programación', 1, 0, '', 0)" [icon]="faPlusCircle" size="lg"></fa-icon> 
+            </div>
+
+            <app-listar-conocimientos (seBorro)="seBorro($event)" (abrirEditar)="abrirEditar($event)" *ngIf="programacion" [conocimientos] = "programacion"> </app-listar-conocimientos>  
+
+
+
+
+
           </div>
       </div>
     </div>
     <div class="col-sm-4">
       <div class="card border-primary h-100">
         <div class="card-body">
-            <h5 class="card-title"> <fa-icon [icon]="faDatabase"></fa-icon> Base de datos</h5>
-            <ul class="list-group list-group-flush">
-                <li class="list-group-item">• MySQL</li>
-                <li class="list-group-item">• SQLServer</li>
-                <li class="list-group-item">• Oracle (básico)</li>
-            </ul>
+
+          <div class="d-flex justify-content-between">
+            <h5 class="card-title"> <fa-icon [icon]="faDatabase"></fa-icon> Base de datos </h5>
+            <fa-icon class="iconoLink" (click)="openModal('Añadir conocimiento de base de datos', 2, 0, '', 0)" [icon]="faPlusCircle" size="lg"></fa-icon> 
+        </div>
+
+            <app-listar-conocimientos (seBorro)="seBorro($event)" (abrirEditar)="abrirEditar($event)" *ngIf="base_datos" [conocimientos] = "base_datos"> </app-listar-conocimientos>
+
         </div>
       </div>
     </div>
     <div class="col-sm-4">
         <div class="card border-primary h-100">
           <div class="card-body">
-            <h5 class="card-title"> <fa-icon [icon]="faLaptopCode"></fa-icon> Otros</h5>
-            <ul class="list-group list-group-flush">
-                <li class="list-group-item">• HTML </li>
-                <li class="list-group-item">• CSS - Bootstrap, Materialize</li>
-                <li class="list-group-item">• OpenShift </li>
-            </ul>
+
+            <div class="d-flex justify-content-between">
+              <h5 class="card-title"> <fa-icon [icon]="faLaptopCode"></fa-icon> Otros </h5>
+              <fa-icon class="iconoLink" (click)="openModal('Añadir otro conocimiento', 3, 0, '', 0)" [icon]="faPlusCircle" size="lg"></fa-icon> 
+          </div>
+
+            <app-listar-conocimientos (seBorro)="seBorro($event)" (abrirEditar)="abrirEditar($event)" *ngIf="otros" [conocimientos] = "otros"> </app-listar-conocimientos>
+
           </div>
         </div>
       </div>

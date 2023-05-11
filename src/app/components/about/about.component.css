@@ -3,10 +3,6 @@
     --colorCards: #993366;
 }
 
-.fondoImg {
-    background-color: #ecc6d9;
-}
-
 .hr-sect:before {
     content: "";
     flex-grow: 1;
@@ -16,3 +12,4 @@
     line-height: 0px;
     margin: 0px 8px;
 }
+

@@ -1,0 +1,17 @@
+<ul class="list-group list-group-flush">
+    <li *ngFor="let conocimiento of conocimientos" class="list-group-item">
+
+      <div class="d-flex justify-content-between align-items-center">
+        <span>• {{ conocimiento.nombre }} </span>
+        <div>
+            <fa-icon (click)="abrirModal(conocimiento.id_conocimiento, 'Editar conocimiento', conocimiento.tipo_conocimiento, conocimiento.nombre, conocimiento.porcentaje)" class="iconoLink" [icon]="faEdit" size="lg"></fa-icon> 
+            <fa-icon (click)="deleteAlert(conocimiento.id_conocimiento, conocimiento.tipo_conocimiento)" class="iconoLink" [icon]="faTrash" size="lg"></fa-icon>
+        </div>
+      </div>
+
+      <div class="progress" role="progressbar" aria-label="Animated striped example" aria-valuemin="0" aria-valuemax="100">
+        <div class="progress-bar progress-bar-striped progress-bar-animated" [style.width]="conocimiento.porcentaje+'%'"></div>
+      </div>
+      
+    </li>
+</ul>

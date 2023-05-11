@@ -1,0 +1,32 @@
+:root {
+    --colorCards: #993366;
+    --rosita: #ecc6d9;
+    --rositaOscuro: #df9fbf;
+}
+
+.card-header {
+    justify-content: center !important;
+    padding-bottom: 20px;
+    padding-top: 20px;
+    border-color: var(--colorCards);
+}
+
+.contenedorInputs{
+    padding-top: 40px;
+    padding-bottom: 40px;
+    margin-right: 40px; 
+    margin-left: 40px;
+}
+
+.contenedorLogin {
+    padding-top: 100px;
+    height: 100vh;
+}
+
+.card-body {
+    padding-bottom: 40px;
+}
+
+.textito {
+    padding-top: 10px;
+}

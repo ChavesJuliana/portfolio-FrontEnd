@@ -1,6 +1,16 @@
 /* You can add global styles to this file, and also import other style files */
 :root {
     --colorCards: #993366;
+    --rosita: #c13e80;
+    --rositaOscuro: #9a3266;
+}
+
+.fondo {
+    background-color: #eedddd;
+}
+
+.fondoImg {
+    background-color: var(--rosita);
 }
 
 .hr-sect {
@@ -22,6 +32,26 @@
     margin: 0px 8px;
 }
 
+.btn {
+    background-color: var(--rosita);
+    color: white;
+    
+}
+
+.btn-sin-bordes {
+    color:var(--rosita);
+    background-color: white;
+    border-color:var(--rosita);
+    
+    
+}
+
+
+.btn:hover{
+    background-color: var(--rositaOscuro);
+    
+}
+
 
 
 .contenedor {
@@ -35,3 +65,41 @@
     border-radius: 10px;
     box-shadow: -6px 6px 0 0 var(--colorCards);
 }
+
+.borderRosa {
+    box-shadow: 1px 1px 50px pink;
+}
+
+.iconoLink:hover {
+    cursor: pointer;
+}
+
+
+.progress-bar-striped {
+    background-color: var(--rosita);
+}
+.custom-file-button input[type=file] {
+    margin-left: -2px !important;
+  }
+  
+  .custom-file-button input[type=file]::-webkit-file-upload-button {
+    display: none;
+  }
+  
+  .custom-file-button input[type=file]::file-selector-button {
+    display: none;
+  }
+  
+  .custom-file-button:hover label {
+    background-color: #dde0e3;
+    cursor: pointer;
+  }
+
+ .rangeRosa::-webkit-slider-thumb {
+    background-color: var(--rosita);
+ }
+
+ input[type="radio"]:checked {
+    background-color: var(--rosita);
+    border: white;
+ }
