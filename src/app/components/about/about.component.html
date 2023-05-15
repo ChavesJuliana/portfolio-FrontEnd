@@ -5,14 +5,14 @@
 <div class="card border-primary mb-3 mx-auto" style="max-width: 800px;">
     <div class="row g-0">
       <div class="col-md-4 fondoImg">
-        <img src="assets/img/rila.png" class="img-fluid rounded-start" alt="...">
+        <img src="{{persona?.url_foto}}" class="img-fluid rounded-start" alt="...">
       </div>
       <div class="col-md-8">
         <div class="card-body">
 
           <div class="d-flex justify-content-between">
             <h5 class="card-title"> <fa-icon [icon]="faUser"></fa-icon>  Sobre mi </h5>
-            <div>
+            <div *ngIf="rol === '1'">
               <fa-icon class="iconoLink" (click)="openModal()" size="lg" [icon]="faEdit"></fa-icon>
             </div>
           </div>

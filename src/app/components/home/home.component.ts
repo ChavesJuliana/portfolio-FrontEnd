@@ -7,9 +7,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
 
+  rol : string | null = '';
+
+
   constructor() { }
 
   ngOnInit(): void {
+    this.rol = localStorage.getItem('rol');
   }
 
 }

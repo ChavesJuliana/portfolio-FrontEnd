@@ -21,6 +21,11 @@ import { ModalConocimientosComponent } from './components/conocimientos/modal-co
 import { ModalEstudiosComponent } from './components/estudios/modal-estudios/modal-estudios.component';
 import { ListarEstudiosComponent } from './components/estudios/listar-estudios/listar-estudios.component';
 import { AuthInterceptor } from './helpers/auth.interceptor';
+import { ListarExperienciasComponent } from './components/experience/listar-experiencias/listar-experiencias.component';
+import { ModalExperienceComponent } from './components/experience/modal-experience/modal-experience.component';
+import { ListarProyectosComponent } from './components/proyectos/listar-proyectos/listar-proyectos.component';
+import { ModalProyectosComponent } from './components/proyectos/modal-proyectos/modal-proyectos.component';
+import { FooterComponent } from './components/footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -37,7 +42,12 @@ import { AuthInterceptor } from './helpers/auth.interceptor';
     ListarConocimientosComponent,
     ModalConocimientosComponent,
     ModalEstudiosComponent,
-    ListarEstudiosComponent
+    ListarEstudiosComponent,
+    ListarExperienciasComponent,
+    ModalExperienceComponent,
+    ListarProyectosComponent,
+    ModalProyectosComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,

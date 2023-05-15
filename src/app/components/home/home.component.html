@@ -1,18 +1,38 @@
 <app-header></app-header>
+
+
 <div class="container-fluid fondo">
+
+  <a id="sobremi" name="sobremi">
+    <div class="container contenedor" >
+      <app-about [rol]="rol"></app-about>
+    </div>
+  </a>
+  <a id="conocimientos" name="conocimientos">
+    <div class="container contenedor">
+      <app-conocimientos [rol]="rol"></app-conocimientos>
+    </div>
+  </a>
+
+  <a id="estudios" name="estudios">
+    <div class="container contenedor">
+      <app-estudios [rol]="rol" ></app-estudios>
+    </div>
+  </a>
+
+  <a id="experiencia" name="experiencia">
   <div class="container contenedor">
-    <app-about></app-about>
+    <app-experience [rol]="rol"></app-experience>
   </div>
-  <div class="container contenedor">
-    <app-conocimientos></app-conocimientos>
-  </div>
-  <div class="container contenedor">
-    <app-estudios></app-estudios>
-  </div>
-  <div class="container contenedor">
-    <app-experience></app-experience>
-  </div>
-  <div class="container contenedor">
-    <app-proyectos></app-proyectos>
-  </div>
+  </a>
+
+
+  <a id="proyectos" name="proyectos">
+    <div class="container contenedor">
+      <app-proyectos [rol]="rol"></app-proyectos>
+    </div>
+  </a>
+
 </div>
+
+<app-footer></app-footer>

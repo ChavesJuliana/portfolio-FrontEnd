@@ -1,6 +1,6 @@
 import { Component, Input, Output, OnInit, EventEmitter } from '@angular/core';
 import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ConocimientoService } from 'src/app/services/service-conocimiento.service';
 import { Conocimiento } from 'src/app/model/conocimiento';
 
@@ -21,7 +21,6 @@ export class ModalConocimientosComponent implements OnInit {
   @Input() id: number = 0;
   @Output() mandarConocimiento: EventEmitter<any> = new EventEmitter();
 
-
   constructor(
     private activeModal: NgbActiveModal,
     private readonly conocimientoService: ConocimientoService,
@@ -35,8 +34,8 @@ export class ModalConocimientosComponent implements OnInit {
   initForm(): FormGroup{
     return this.fb.group({
       id_conocimiento: [this.id],
-      nombre: [this.nombre],
-      porcentaje: [this.porcentaje],
+      nombre: [this.nombre, [Validators.required, Validators.minLength(1), Validators.maxLength(45)]],
+      porcentaje: [this.porcentaje, [Validators.required, Validators.min(1)]],
       id_persona: [this.id_persona],
       tipo_conocimiento: [this.tipo_conocimiento]
     })
@@ -47,6 +46,11 @@ export class ModalConocimientosComponent implements OnInit {
   }
 
   onSubmit(){
+
+    if (!this.aboutForm.valid) {
+      return;
+    }
+
     let conocimiento = this.aboutForm.value as Conocimiento;
 
     if(this.id === 0){

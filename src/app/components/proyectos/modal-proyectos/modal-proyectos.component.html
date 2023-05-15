@@ -1,0 +1,74 @@
+<div class="modal-content">
+    <div class="modal-header">
+      <h1 class="modal-title fs-5" id="staticBackdropLabel"> {{titulo}} </h1>
+      <button type="button" class="btn-close" (click)="closeModal()"></button>
+    </div>
+
+    <form (ngSubmit)="onSubmit()" [formGroup]="aboutForm">
+
+
+    <div class="modal-body">
+
+        <div class="input-group mb-3">
+          <span class="input-group-text"> Nombre: </span>
+          <input class="form-control" type="text" id="nombre" name="nombre" required formControlName="nombre">
+        </div>
+        <div class="input-group mb-3">
+          <span class="input-group-text"> Url foto: </span>
+          <input class="form-control" type="text" id="url_foto" name="url_foto" required formControlName="url_foto">
+        </div>
+        <div class="input-group mb-3">
+            <span class="input-group-text"> Url proyecto: </span>
+            <input class="form-control" type="text" id="nombre" name="nombre" required formControlName="url_proyecto">
+          </div>
+        <!--
+        <div class="input-group mb-3 custom-file-button">
+            <span class="input-group-text" for="formFile"> Imagen de perfil: </span>
+            <input class="form-control" type="file" id="formFile">
+        </div>
+        -->
+        <div class="input-group mb-3">
+            <span class="input-group-text"> Fecha desde: </span>
+            <input class="form-control" type="date" id="fecha_desde" name="fecha_desde" required formControlName="fecha_desde">
+        </div>
+        <div class="input-group mb-3">
+            <span class="input-group-text"> Fecha hasta: </span>
+            <input class="form-control" type="date" id="fecha_hasta" name="fecha_hasta" required formControlName="fecha_hasta">
+        </div>
+
+        <div class="mb-3">
+            <label for="exampleFormControlTextarea1" class="form-label">Descripción</label>
+            <textarea class="form-control" id="exampleFormControlTextarea1" rows="10" id="descripcion" name="descripcion" required formControlName="descripcion"></textarea>
+        </div>
+        <div class="form-check">
+            <input class="form-check-input custom-control-input" value="0" type="radio" name="actualmente" id="flexRadioDefault1" formControlName="actualmente">
+            <label class="form-check-label " for="flexRadioDefault1">
+              Actualmente
+            </label>
+        </div>
+        <div class="form-check">
+            <input class="form-check-input" type="radio" value="1" name="actualmente" id="flexRadioDefault2" formControlName="actualmente">
+            <label class="form-check-label" for="flexRadioDefault2">
+                Finalizado
+            </label>
+        </div>
+
+        <div [hidden]="(aboutForm.valid) || aboutForm.pristine" class="input-group mb-3 alert alert-danger ">
+          ¡Hay datos vacíos o incorrectos!
+        </div>
+
+        <input type="text" name="id_proyecto" id="id_proyecto" formControlName="id_proyecto" style="display: none;" />
+        <input type="text" name="id_persona" id="id_persona" formControlName="id_persona" style="display: none;" />
+
+
+    </div>
+
+    <div class="modal-footer">
+      <button type="submit"  [disabled]="aboutForm.invalid" data-bs-dismiss="modal" class="btn">Confirmar</button>
+      <button type="button" class="btn btn-sin-bordes" (click)="closeModal()">Cerrar</button>
+    </div>
+
+    </form>
+
+    
+  </div>

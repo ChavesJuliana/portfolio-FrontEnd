@@ -8,11 +8,11 @@
 
         <div class="d-flex justify-content-between">
             <h5 class="card-title"> <fa-icon [icon]="faGraduationCap"></fa-icon> Estudios </h5>
-            <fa-icon class="iconoLink" (click)="openModal('Añadir un estudio', 0, '', '', null, null, 0)" [icon]="faPlusCircle" size="lg"></fa-icon> 
+            <fa-icon class="iconoLink" *ngIf="rol === '1'" (click)="openModal('Añadir un estudio', 0, '', '', null, null, 0)" [icon]="faPlusCircle" size="lg"></fa-icon> 
             
         </div>
 
-        <app-listar-estudios (abrirEditar)="abrirEditar($event)" (seBorro)="seBorro($event)" *ngIf="educacion" [educacion] = "educacion"></app-listar-estudios>
+        <app-listar-estudios [rol]="rol" (abrirEditar)="abrirEditar($event)" (seBorro)="seBorro($event)" *ngIf="educacion" [educacion] = "educacion"></app-listar-estudios>
 
 
     </div>

@@ -4,6 +4,7 @@ export interface Credencial {
 }
 
 export interface Token {
-    email: string;
+    username: string;
     token: string;
+    rol: number;
 }

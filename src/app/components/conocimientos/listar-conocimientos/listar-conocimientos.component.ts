@@ -13,7 +13,7 @@ export class ListarConocimientosComponent implements OnInit {
   faTrash = faTrash;
   faEdit = faEdit;
   @Input() conocimientos: Conocimiento[] = [];
-  
+  @Input() rol: String | null = '';
   @Output() abrirEditar: EventEmitter<any> = new EventEmitter();
   @Output() seBorro: EventEmitter<any> = new EventEmitter();
 

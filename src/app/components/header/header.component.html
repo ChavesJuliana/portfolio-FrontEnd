@@ -1,4 +1,4 @@
-<nav class="navbar navbar-custom navbar-expand-lg bg-body-tertiary">
+<nav class="navbar navbar-custom navbar-expand-lg bg-body-tertiary ">
     <div class="container-fluid">
         <a class="navbar-brand" href="#">
             <img src="assets/img/APLogo.png" style="max-width: 150px;" alt="Logo" class="d-inline-block align-text-center">
@@ -10,21 +10,28 @@
       <div class="collapse navbar-collapse" id="navbarText">
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
           <li class="nav-item" *ngIf="isHome()!='/login'">
-            <a class="nav-link active" aria-current="page" href="#">Home</a>
+            <a class="nav-link" aria-current="page" href="#sobremi">Sobre mi</a>
           </li>
           <li class="nav-item" *ngIf="isHome()!='/login'">
-            <a class="nav-link" href="#">blabla</a>
+            <a class="nav-link" aria-current="page" href="#conocimientos">Conocimientos</a>
           </li>
           <li class="nav-item" *ngIf="isHome()!='/login'">
-            <a class="nav-link" href="#">blabla</a>
+            <a class="nav-link" aria-current="page" href="#estudios">Estudios</a>
+          </li>
+          <li class="nav-item" *ngIf="isHome()!='/login'">
+            <a class="nav-link" aria-current="page" href="#experiencia">Experiencia</a>
+          </li>
+          <li class="nav-item" *ngIf="isHome()!='/login'">
+            <a class="nav-link" aria-current="page" href="#proyectos">Proyectos</a>
           </li>
         </ul>
         <span class="navbar-text">
           <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-            <a class="nav-link" href="#"> 
-              <fa-icon [icon]="faGithub" size="2x"></fa-icon>
+            <a class="nav-link" href="https://github.com/ChavesJuliana" target="_blank"> 
+              <fa-icon [icon]="faGithub" size="2x"></fa-icon> 
+              
             </a>
-            <a class="nav-link" style="margin-right: 30px;" href="#"> 
+            <a class="nav-link" style="margin-right: 30px;" href="https://www.linkedin.com/in/juliana-mariel-chaves" target="_blank"> 
               <fa-icon [icon]="faLinkedin" size="2x"></fa-icon> 
             </a>
             <button class="btn" style="margin-right: 10px;" routerLink="/login" *ngIf="isHome()!='/login' && !logIn()">

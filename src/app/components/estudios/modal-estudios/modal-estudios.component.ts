@@ -1,5 +1,5 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 import { Educacion } from 'src/app/model/educacion';
 import { EstudioService } from 'src/app/services/service-estudio.service';
@@ -51,14 +51,19 @@ export class ModalEstudiosComponent implements OnInit {
   initForm(): FormGroup{
     return this.fb.group({
       id_educacion: [this.id_educacion],
-      nombre: [this.nombre],
-      institucion: [this.institucion],
-      fecha_desde: [this.fecha_desde],
+      nombre: [this.nombre, [Validators.required, Validators.minLength(1), Validators.maxLength(45)]],
+      institucion: [this.institucion, [Validators.required, Validators.minLength(1), Validators.maxLength(45)]],
+      fecha_desde: [this.fecha_desde, [Validators.required]],
       fecha_hasta: [this.fecha_hasta],
       actualmente: [''+this.actualmente],
       id_persona: [this.id_persona]
-    })
+    });
   } 
+
+  fechaValidar(){
+    
+  }
+
 
   closeModal() {
     this.activeModal.close();

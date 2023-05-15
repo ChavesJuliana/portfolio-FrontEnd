@@ -39,6 +39,10 @@
             </label>
         </div>
 
+        <div [hidden]="(aboutForm.valid) || aboutForm.pristine" class="input-group mb-3 alert alert-danger ">
+          ¡Hay datos vacíos o incorrectos!
+        </div>
+
         <input type="text" name="id_educacion" id="id_educacion" formControlName="id_educacion" style="display: none;" />
         <input type="text" name="id_persona" id="id_persona" formControlName="id_persona" style="display: none;" />
 
@@ -46,7 +50,7 @@
     </div>
 
     <div class="modal-footer">
-      <button type="submit" data-bs-dismiss="modal" class="btn">Confirmar</button>
+      <button type="submit" [disabled]="aboutForm.invalid" data-bs-dismiss="modal" class="btn">Confirmar</button>
       <button type="button" class="btn btn-sin-bordes" (click)="closeModal()">Cerrar</button>
     </div>
 

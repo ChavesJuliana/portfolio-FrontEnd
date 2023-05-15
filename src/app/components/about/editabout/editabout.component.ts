@@ -1,8 +1,10 @@
 import { Component, OnInit, ViewChild, ElementRef, Input, Output, EventEmitter } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { PersonaService } from 'src/app/services/service-persona.service';
 import { Persona } from 'src/app/model/persona';
 import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
+import { environment } from 'src/environments/environment';
+import { AuthService } from 'src/app/services/service-auth.service';
 
 @Component({
   selector: 'app-editabout',
@@ -14,6 +16,9 @@ export class EditaboutComponent implements OnInit {
   @Input() persona?: Persona;
   @Output() mandarPersona: EventEmitter<any> = new EventEmitter();
 
+  private readonly url = environment.urlApi+'/persona/media/';
+
+  archivo!: File;
   
   aboutForm!: FormGroup;
 
@@ -29,11 +34,11 @@ export class EditaboutComponent implements OnInit {
   
  initForm(): FormGroup{
     return this.fb.group({
-      nombre: [this.persona?.nombre],
-      apellido: [this.persona?.apellido],
-      titulo: [this.persona?.titulo],
-      descripcion: [this.persona?.descripcion],
-      url_foto: ['MiFoto.png']
+      nombre: [this.persona?.nombre, [Validators.required, Validators.minLength(1), Validators.maxLength(45)]],
+      apellido: [this.persona?.apellido, [Validators.required, Validators.minLength(1), Validators.maxLength(45)]],
+      titulo: [this.persona?.titulo, [Validators.required, Validators.minLength(1), Validators.maxLength(45)]],
+      descripcion: [this.persona?.descripcion, [Validators.required, Validators.minLength(1), Validators.maxLength(200)]],
+      url_foto: [this.persona?.url_foto]
     })
   } 
 
@@ -44,19 +49,31 @@ export class EditaboutComponent implements OnInit {
   }
 
   onSubmit(){
+
     let persona = this.aboutForm.value as Persona;
-    this.editarPersona(persona);
+    const formData = new FormData()
+
+    if(this.archivo){  
+      formData.append('file', this.archivo);
+      persona.url_foto = this.url+this.archivo.name;
+    } else {
+      formData.append('file', '');
+      persona.url_foto = this.persona!.url_foto;
+    }
+
+    this.personaService.updatePersona(formData, persona).subscribe( res => {
+      this.persona = persona;
+      this.mandarPersona.emit(this.persona);
+    });
+
     this.closeModal();
   }
 
-  editarPersona(persona: Persona): void {
-    this.personaService.updatePersona(persona).subscribe( res => {
-      this.persona = persona;
-      this.mandarPersona.emit(this.persona);
-    })  
-
+  onFileSelected(event : any) {
+    this.archivo = event.target.files[0];
   }
 
-  
+
+
 
 }

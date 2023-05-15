@@ -1,0 +1,49 @@
+
+<div id="carouselExample" class="carousel slide">
+    <div class="carousel-inner">
+      <div *ngFor="let experiencia of experiencia; let i = index"  class="carousel-item" [class.active]="i === 0">
+            <div class="card mx-auto border-primary mb-3" style="max-width: 800px;">
+                <div class="row g-0">
+                    <div class="col-md-4 fondoImg">
+                    <img src="{{ experiencia.url_foto }}" class="img-fluid rounded-start" alt="...">
+                    </div>
+                    <div class="col-md-8">
+                        <div class="card-body">
+                            <div class="d-flex justify-content-between align-items-center">
+
+                                <div>
+                                    <h5 class="card-title"> {{ experiencia.nombre }} </h5>
+                                </div>
+                    
+                                <div *ngIf="rol === '1'">
+                                    <fa-icon  (click)="abrirModal('Editar experiencia', experiencia.id_experiencia, experiencia.descripcion, 
+                                    experiencia.url_foto, experiencia.nombre, experiencia.tipoTrabajo.id_tipo_trabajo, experiencia.fecha_hasta, 
+                                    experiencia.fecha_desde, experiencia.actualmente)" class="iconoLink" [icon]="faEdit" size="lg"></fa-icon> 
+                                    <fa-icon  (click)="deleteAlert(experiencia.id_experiencia)" class="iconoLink" [icon]="faTrash" size="lg"></fa-icon>
+                                </div>
+                    
+                             </div>
+
+                            <p style="margin:0;" class="text-muted">  {{ experiencia.fecha_desde }} - 
+                                {{ experiencia.actualmente ? experiencia.fecha_hasta : "Actualmente"}} </p> 
+                            <p class="text-muted">  {{ experiencia.tipoTrabajo.nombre_trabajo }} </p> 
+                            <p class="card-text"> {{ experiencia.descripcion }} </p>
+                        </div>
+                    </div>
+                </div>
+            </div>     
+        </div>
+
+    </div>
+
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
+      <span> <fa-icon [icon]="faArrowLeft" size="3x" style="color:#993366;"></fa-icon>  </span>
+      <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
+      <span> <fa-icon [icon]="faArrowRight" size="3x" style="color:#993366;"></fa-icon> </span>
+      <span class="visually-hidden">Next</span>
+    </button>
+  
+</div>
+

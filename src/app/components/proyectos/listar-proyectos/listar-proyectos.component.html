@@ -1,0 +1,48 @@
+<div id="carouselProyectos" class="carousel slide">
+    <div class="carousel-inner">
+      <div *ngFor="let proyecto of proyectos; let i = index"  class="carousel-item" [class.active]="i === 0">
+            <div class="card mx-auto border-primary mb-3" style="max-width: 800px;">
+                <div class="row g-0">
+                    <div class="col-md-4 fondoImg">
+                        <img src="{{ proyecto.url_foto }}" class="img-fluid rounded-start" alt="...">
+                    </div>
+                    <div class="col-md-8">
+                        <div class="card-body">
+                            <div class="d-flex justify-content-between align-items-center">
+
+                                <div>
+                                    <h5 class="card-title"> {{ proyecto.nombre }}  </h5>
+                                </div>
+                    
+                                <div>
+                                    <fa-icon  *ngIf="rol === '1'" (click)="abrirModal('Editar proyecto', proyecto.id_proyecto, proyecto.nombre, 
+                                    proyecto.descripcion, proyecto.url_proyecto, proyecto.fecha_hasta, 
+                                    proyecto.fecha_desde, proyecto.actualmente, proyecto.url_foto)" class="iconoLink" [icon]="faEdit" size="lg"></fa-icon> 
+                                    <fa-icon  *ngIf="rol === '1'" (click)="deleteAlert(proyecto.id_proyecto)" class="iconoLink" [icon]="faTrash" size="lg"></fa-icon>
+                                </div>
+                    
+                             </div>
+
+                            <p style="margin:0;" class="text-muted">  {{ proyecto.fecha_desde }} - 
+                                {{ proyecto.actualmente ? proyecto.fecha_hasta : "Actualmente"}} </p> 
+                            <p class="card-text"> {{ proyecto.descripcion }} </p>
+                            <a target="_blank" href={{proyecto.url_proyecto}} class="btn"> Ver más </a>
+                        </div>
+                    </div>
+                </div>
+            </div>     
+        </div>
+
+    </div>
+
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselProyectos" data-bs-slide="prev">
+      <span> <fa-icon [icon]="faArrowLeft" size="3x" style="color:#993366;"></fa-icon>  </span>
+      <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselProyectos" data-bs-slide="next">
+      <span> <fa-icon [icon]="faArrowRight" size="3x" style="color:#993366;"></fa-icon> </span>
+      <span class="visually-hidden">Next</span>
+    </button>
+  
+</div>
+

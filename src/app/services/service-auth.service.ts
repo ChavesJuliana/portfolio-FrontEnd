@@ -1,9 +1,8 @@
 import { Injectable } from '@angular/core';
 import { Credencial, Token } from '../model/credencial';
 import { environment } from 'src/environments/environment';
-import { HttpClient, HttpParams, HttpResponse } from '@angular/common/http';
-import { Observable, map, throwError } from 'rxjs';
-import { catchError } from 'rxjs/operators';
+import { HttpClient } from '@angular/common/http';
+import { Observable, tap  } from 'rxjs';
 
 
 @Injectable({
@@ -16,10 +15,11 @@ export class AuthService {
   constructor(private readonly http: HttpClient) { }
 
   login(credencial: Credencial): Observable<Token>{
-    return this.http.post<Token>(this.url, credencial);
+     return this.http.post<Token>(this.url, credencial);
   }
  
   getToken() {
     return localStorage.getItem('token');
   }
-} 
+
+}

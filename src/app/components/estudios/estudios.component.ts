@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { faGraduationCap, faPlusCircle } from '@fortawesome/free-solid-svg-icons';
 import { ModalEstudiosComponent } from './modal-estudios/modal-estudios.component';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
@@ -14,7 +14,7 @@ export class EstudiosComponent implements OnInit {
 
   faGraduationCap = faGraduationCap;
   faPlusCircle = faPlusCircle;
-
+  @Input() rol: String | null = '';
   educacion : Educacion[] = [];
 
   constructor(
@@ -31,7 +31,6 @@ export class EstudiosComponent implements OnInit {
   }
 
   abrirEditar($event: { titulo: string; id: number; nombre: string; institucion: string; fecha_desde: Date; fecha_hasta: Date; actualmente: number; }){
-    console.log($event);
     this.openModal($event.titulo, $event.id, $event.nombre, $event.institucion, $event.fecha_desde, $event.fecha_hasta, $event.actualmente);
   }
 

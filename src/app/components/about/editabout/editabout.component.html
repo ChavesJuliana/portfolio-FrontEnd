@@ -23,18 +23,29 @@
               <span class="input-group-text"> Título: </span>
               <input class="form-control" type="text" id="titulo" name="titulo" required formControlName="titulo">
             </div>
-            <div class="input-group mb-3 custom-file-button">
-                <span class="input-group-text" for="formFile"> Imagen de perfil: </span>
-                <input class="form-control" type="file" id="formFile">
+            <div class="input-group mb-3">
+              <span class="input-group-text"> Url foto: </span>
+              <input class="form-control" type="text" id="url_foto" name="url_foto" required formControlName="url_foto">
             </div>
+            
+            <!-- Esto fue una prueba para probar subir el archivo al servidor springboot-->
+            <!-- <div class="input-group mb-3 custom-file-button">
+                <span class="input-group-text" for="formFile"> Imagen de perfil: </span>
+                <input class="form-control" type="file" id="formFile" formControlName="url_foto" (change)="onFileSelected($event)">
+            </div> -->
             <div class="mb-3">
               <label for="exampleFormControlTextarea1" class="form-label">Descripción</label>
               <textarea class="form-control" id="exampleFormControlTextarea1" rows="10" id="descripcion" name="descripcion" required formControlName="descripcion"></textarea>
             </div>
+
+            <div [hidden]="(aboutForm.valid) || aboutForm.pristine" class="input-group mb-3 alert alert-danger ">
+              ¡Hay datos vacíos o incorrectos!
+            </div>
+            
         </div>
 
         <div class="modal-footer">
-          <button type="submit" data-bs-dismiss="modal" class="btn">Confirmar</button>
+          <button type="submit" [disabled]="aboutForm.invalid" data-bs-dismiss="modal" class="btn">Confirmar</button>
           <button type="button" class="btn btn-sin-bordes" (click)="closeModal()">Cerrar</button>
         </div>
 

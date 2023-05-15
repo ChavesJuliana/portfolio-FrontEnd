@@ -3,7 +3,7 @@
 
       <div class="d-flex justify-content-between align-items-center">
         <span>• {{ conocimiento.nombre }} </span>
-        <div>
+        <div *ngIf="rol === '1'">
             <fa-icon (click)="abrirModal(conocimiento.id_conocimiento, 'Editar conocimiento', conocimiento.tipo_conocimiento, conocimiento.nombre, conocimiento.porcentaje)" class="iconoLink" [icon]="faEdit" size="lg"></fa-icon> 
             <fa-icon (click)="deleteAlert(conocimiento.id_conocimiento, conocimiento.tipo_conocimiento)" class="iconoLink" [icon]="faTrash" size="lg"></fa-icon>
         </div>

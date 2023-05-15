@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { faDatabase, faCode, faLaptopCode, faCircle, faPlusCircle } from '@fortawesome/free-solid-svg-icons';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { Conocimiento } from 'src/app/model/conocimiento';
@@ -23,6 +23,7 @@ export class ConocimientosComponent implements OnInit {
   base_datos: Conocimiento[] = [];
   otros: Conocimiento[] = [];
   soft_skills: Conocimiento[] = [];
+  @Input() rol: String | null = '';
 
 
   constructor(

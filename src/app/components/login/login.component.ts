@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { faEnvelope, faLock } from '@fortawesome/free-solid-svg-icons';
 import { catchError, throwError } from 'rxjs';
@@ -29,12 +29,33 @@ export class LoginComponent implements OnInit {
 
   initForm(): FormGroup{
     return this.fb.group({
-      email: [],
-      password: []
+      email: ['', [Validators.required, Validators.email]],
+      password: ['', [Validators.required]]
     })
   } 
 
+  invitado(){
+
+    let credencial: Credencial = {
+      email: 'invitado@gmail.com',
+      password: 'invitado'
+  };
+
+    this.authService.login(credencial).pipe(
+    ).subscribe(response => {
+      localStorage.setItem('token', response.token);
+      localStorage.setItem('rol', response.rol.toString());
+      this.router.navigate(['/']);
+    });
+
+  }
+
+
   onSubmit(){
+    if (!this.aboutForm.valid) {
+      return;
+    }
+
     let credencial = this.aboutForm.value as Credencial;
     this.authService.login(credencial).pipe(
       catchError((error: any) => {
@@ -52,6 +73,7 @@ export class LoginComponent implements OnInit {
       })
     ).subscribe(response => {
       localStorage.setItem('token', response.token);
+      localStorage.setItem('rol', response.rol.toString());
       this.router.navigate(['/']);
     });
 

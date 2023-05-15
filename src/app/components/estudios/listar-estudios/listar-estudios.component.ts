@@ -17,6 +17,7 @@ export class ListarEstudiosComponent implements OnInit {
   @Input() educacion: Educacion[] = [];
   @Output() seBorro: EventEmitter<any> = new EventEmitter()
   @Output() abrirEditar: EventEmitter<any> = new EventEmitter();
+  @Input() rol: String | null = '';
 
   constructor(
     private readonly estudioService: EstudioService

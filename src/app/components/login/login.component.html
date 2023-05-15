@@ -15,16 +15,21 @@
                             <span class="input-group-text"> <fa-icon [icon]="faEnvelope"></fa-icon> </span>
                             <input class="form-control form-control-lg" type="text" placeholder="Email" formControlName="email" >
                         </div>
+
                         <div class="input-group mb-3">
                             <span class="input-group-text"> <fa-icon [icon]="faLock"></fa-icon> </span>
-                            <input class="form-control form-control-lg" type="text" placeholder="Contraseña"  formControlName="password" >
+                            <input class="form-control form-control-lg" type="password" placeholder="Contraseña"  formControlName="password" >
+                        </div>
+                        <div [hidden]="(aboutForm.valid) || aboutForm.pristine" class="input-group mb-3 alert alert-danger ">
+                            ¡Hay datos vacíos o incorrectos!
                         </div>
         
                     </div>
         
         
                     <div class="d-grid gap-2 col-6 mx-auto">
-                        <button class="btn fs-5" type="submit">Continuar</button>                
+                        <button class="btn fs-5" type="submit">Continuar</button>    
+                        <button class="btn fs-5 btn-sin-bordes" type="button" (click)="invitado()" >Iniciar sesión como invitado</button>                
                     </div>
                 </form>
             </div>
@@ -33,3 +38,5 @@
     
 
 </div>
+
+<app-footer></app-footer>

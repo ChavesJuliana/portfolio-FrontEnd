@@ -1,12 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { faUser, faEdit } from '@fortawesome/free-solid-svg-icons';
 import { Persona } from 'src/app/model/persona';
 import { PersonaService } from 'src/app/services/service-persona.service';
 import { FormGroup, FormBuilder } from '@angular/forms';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { EditaboutComponent } from './editabout/editabout.component';
-
-
 
 
 @Component({
@@ -19,6 +17,7 @@ export class AboutComponent implements OnInit {
   faEdit = faEdit;
   persona?: Persona;
   aboutForm!: FormGroup;
+  @Input() rol: String | null = '';
 
   constructor(
     public modalService: NgbModal,
@@ -31,6 +30,7 @@ export class AboutComponent implements OnInit {
     this.personaService.getPersona().subscribe( res => {
       this.persona = res;
     })   
+
   }
 
   initForm(): FormGroup{

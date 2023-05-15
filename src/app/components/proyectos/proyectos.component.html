@@ -1,54 +1,8 @@
 <div class="hr-sect">
-  <h1> Proyectos </h1>
-</div>
+  <h1 style="margin-right: 10px;"> Proyectos </h1>
+  <fa-icon *ngIf="rol === '1'" class="iconoLink" (click)="openModal('Añadir un proyecto', 0, '', 
+  '', '', null, null, 0, '')" [icon]="faPlusCircle" size="lg"></fa-icon> 
+</div> 
 
-<div id="carouselProyectos" class="carousel slide">
-    <div class="carousel-inner">
-      <div class="carousel-item active">
-        <div class="card mx-auto border-primary mb-3" style="max-width: 800px;">
-          <div class="row g-0">
-            <div class="col-md-4 fondoImg">
-              <img src="assets/img/UTN.jpg" class="img-fluid rounded-start" alt="...">
-            </div>
-            <div class="col-md-8">
-              <div class="card-body">
-                <h5 class="card-title"> Portafolio </h5>
-                <p class="text-muted"> 15/08/2022 - 15/05/2023 </p>
-                <p class="card-text"> Proyecto integrador realizado para el programa #YoProgramo </p>
-                <button class="btn"> Ver más </button>
-              </div>
-            </div>
-          </div>
-        </div>     
-      </div>
+<app-listar-proyectos #lista (abrirEditar)="abrirEditar($event)" [rol]="rol" (seBorro)="seBorro($event)" *ngIf="proyectos" [proyectos] = "proyectos"></app-listar-proyectos>
 
-      <div class="carousel-item">
-        <div class="card mx-auto border-primary mb-3" style="max-width: 800px;">
-          <div class="row g-0">
-            <div class="col-md-4 fondoImg">
-              <img src="assets/img/UTN.jpg" class="img-fluid rounded-start" alt="...">
-            </div>
-            <div class="col-md-8">
-              <div class="card-body">
-                <h5 class="card-title"> Maquetado para  </h5>
-                <p class="text-muted"> 2022 </p>
-                <p class="card-text"> Realicé el maquetado usando bootstrap para un concurso de la UNLaM </p>
-                <button class="btn"> Ver más </button>
-              </div>
-            </div>
-          </div>
-        </div>     
-      </div>
-
-    </div>
-
-    <button class="carousel-control-prev" type="button" data-bs-target="#carouselProyectos" data-bs-slide="prev">
-      <span> <fa-icon [icon]="faArrowLeft" size="3x" style="color:#993366;"></fa-icon>  </span>
-      <span class="visually-hidden">Previous</span>
-    </button>
-    <button class="carousel-control-next" type="button" data-bs-target="#carouselProyectos" data-bs-slide="next">
-      <span> <fa-icon [icon]="faArrowRight" size="3x" style="color:#993366;"></fa-icon> </span>
-      <span class="visually-hidden">Next</span>
-    </button>
-  
-</div>
