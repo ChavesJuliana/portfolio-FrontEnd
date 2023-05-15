@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { Credencial, Token } from '../model/credencial';
 import { environment } from 'src/environments/environment';
 import { HttpClient } from '@angular/common/http';
-import { Observable, tap  } from 'rxjs';
+import { Observable } from 'rxjs';
 
 
 @Injectable({

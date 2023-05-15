@@ -4,7 +4,6 @@ import { PersonaService } from 'src/app/services/service-persona.service';
 import { Persona } from 'src/app/model/persona';
 import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 import { environment } from 'src/environments/environment';
-import { AuthService } from 'src/app/services/service-auth.service';
 
 @Component({
   selector: 'app-editabout',
