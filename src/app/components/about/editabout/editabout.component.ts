@@ -52,14 +52,16 @@ export class EditaboutComponent implements OnInit {
     let persona = this.aboutForm.value as Persona;
     const formData = new FormData()
 
-    if(this.archivo){  
+   /* if(this.archivo){  
       formData.append('file', this.archivo);
       persona.url_foto = this.url+this.archivo.name;
     } else {
       formData.append('file', '');
       persona.url_foto = this.persona!.url_foto;
-    }
+    } */
 
+    formData.append('file', '');
+    
     this.personaService.updatePersona(formData, persona).subscribe( res => {
       this.persona = persona;
       this.mandarPersona.emit(this.persona);

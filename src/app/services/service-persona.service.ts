@@ -23,7 +23,7 @@ export class PersonaService {
     formData.append('descripcion', persona.descripcion);
     formData.append('titulo', persona.titulo);
   
-    return this.http.put<string>(this.url+"/editar/1", formData);
+    return this.http.put<string>(this.url+"/editar/2", formData);
   } 
 
 
